@@ -1,0 +1,177 @@
+#set global $title = "Almanac"
+#include "header.inc"
+
+        <div class="row">
+          <div class="small-12 large-6 columns">
+
+            <h3>Today's Astronomy</h3>
+            #if $almanac.hasExtras
+            ## Extended almanac information is available. Do the full set of tables.
+            #set $sun_altitude = $almanac.sun.alt
+            #if $sun_altitude < 0
+            #set $sun_None="<i>(Always down)</i>"
+            #else
+            #set $sun_None="<i>(Always up)</i>"
+            #end if
+            <div class="celestial_body">
+              <table>
+                <caption class="caption">Sun</caption>
+                <tr>
+                  <td >Start civil twilight:</td>
+                  <td >$almanac(horizon=-6).sun(use_center=1).rise</td>
+                </tr>
+                <tr>
+                  <td >Sunrise:</td>
+                  <td >$almanac.sun.rise.string($sun_None)</td>
+                </tr>
+                <tr>
+                  <td >Transit:</td>
+                  <td >$almanac.sun.transit</td>
+                </tr>
+                <tr>
+                  <td >Sunset:</td>
+                  <td >$almanac.sun.set.string($sun_None)</td>
+                </tr>
+                <tr>
+                  <td >End civil twilight:</td>
+                  <td >$almanac(horizon=-6).sun(use_center=1).set</td>
+                </tr>
+                <tr>
+                  <td >Azimuth:</td>
+                  <td >$("%.1f&deg;" % $almanac.sun.az)</td>
+                </tr>
+                <tr>
+                  <td >Altitude:</td>
+                  <td >$("%.1f&deg;" % $sun_altitude)</td>
+                </tr>
+                <tr>
+                  <td >Right ascension:</td>
+                  <td >$("%.1f&deg;" % $almanac.sun.ra)</td>
+                </tr>
+                <tr>
+                  <td >Declination:</td>
+                  <td >$("%.1f&deg;" % $almanac.sun.dec)</td>
+                </tr>
+                #if $almanac.next_equinox.raw < $almanac.next_solstice.raw
+                ## The equinox is before the solstice. Display them in order.
+                <tr>
+                  <td >Equinox:</td>
+                  <td >$almanac.next_equinox</td>
+                </tr>
+                <tr>
+                  <td >Solstice:</td>
+                  <td >$almanac.next_solstice</td>
+                </tr>
+                #else
+                ## The solstice is before the equinox. Display them in order.
+                <tr>
+                  <td >Solstice:</td>
+                  <td >$almanac.next_solstice</td>
+                </tr>
+                <tr>
+                  <td >Equinox:</td>
+                  <td >$almanac.next_equinox</td>
+                </tr>
+                #end if
+              </table>
+            </div> <!-- end class "celestial_body" -->
+            <div class="celestial_body">
+              <table>
+                <caption class="caption">Moon</caption>  
+                <tr>
+                  <td >Rise:</td>
+                  <td >$almanac.moon.rise</td>
+                </tr>
+                <tr>
+                  <td >Transit:</td>
+                  <td >$almanac.moon.transit</td>
+                </tr>
+                <tr>
+                  <td >Set:</td>
+                  <td >$almanac.moon.set</td>
+                </tr>
+                <tr>
+                  <td >Azimuth:</td>
+                  <td >$("%.1f&deg;" % $almanac.moon.az)</td>
+                </tr>
+                <tr>
+                  <td >Altitude:</td>
+                  <td >$("%.1f&deg;" % $almanac.moon.alt)</td>
+                </tr>
+                <tr>
+                  <td >Right ascension:</td>
+                  <td >$("%.1f&deg;" % $almanac.moon.ra)</td>
+                </tr>
+                <tr>
+                  <td >Declination:</td>
+                  <td >$("%.1f&deg;" % $almanac.moon.dec)</td>
+                </tr>
+                #if $almanac.next_full_moon.raw < $almanac.next_new_moon.raw
+                <tr>
+                  <td >Full moon:</td>
+                  <td >$almanac.next_full_moon</td>
+                </tr>
+                <tr>
+                  <td >New moon:</td>
+                  <td >$almanac.next_new_moon</td>
+                </tr>
+                #else
+                <tr>
+                  <td >New moon:</td>
+                  <td >$almanac.next_new_moon</td>
+                </tr>
+                <tr>
+                  <td >Full moon:</td>
+                  <td >$almanac.next_full_moon</td>
+                </tr>
+                #end if
+                <tr>
+                  <td >Phase:</td>
+                  <td >$almanac.moon_phase<br/>($almanac.moon_fullness% full)</td>
+                </tr>
+              </table>
+            </div> <!-- end class "celestial_body" -->
+            #else
+            ## No extended almanac information available. Fall back to a simple table.
+            <table>
+              <tr>
+                <td >Sunrise:</td>
+                <td >$almanac.sunrise</td>
+              </tr>
+              <tr>
+                <td >Sunset:</td>
+                <td >$almanac.sunset</td>
+              </tr>
+              <tr>
+                <td >Moon Phase:</td>
+                <td >$almanac.moon_phase<br/>($almanac.moon_fullness% full)</td>
+              </tr>
+            </table>
+            #end if
+          </div> <!-- end class "celestial_group" -->
+          <div class="small-12 large-6 columns">
+      #set $tides = $forecast.xtides
+      #if len($tides) > 0
+            <h3>Tides</h3>
+        #set $lastday = None
+            <table>
+        #for $tide in $tides
+          #set $thisday = $tide.event_ts.format('%d')
+              <tr>
+          #if $lastday != $thisday
+            #set $lastday = $thisday
+                <td>$tide.event_ts.format('%d %b %Y')</td>
+          #else
+                <td>&nbsp;</td>
+          #end if
+                <td>$tide.event_ts.format('%H:%M')</td>
+                <td>$tide.hilo</td>
+                <td>$tide.offset.nolabel('%.1f')</td>
+              </tr>
+        #end for
+      #end if
+            </table>
+          </div>
+        </div>
+
+#include "footer.inc"

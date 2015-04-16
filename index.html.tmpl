@@ -1,0 +1,35 @@
+#set global $title = "Weather"
+#include "header.inc"
+
+          <ul class="tabs" data-tab>
+            <li class="tab-title active"><a href="#panel1">Current</a></li>
+            <li class="tab-title"><a href="#panel2">Week</a></li>
+            <li class="tab-title"><a href="#panel3">Month</a></li>
+            <li class="tab-title"><a href="#panel4">Year</a></li>
+<!-- remove until working
+            <li class="tab-title"><a href="#panel5">Monthly Summaries</a></li>
+            <li class="tab-title"><a href="#panel6">Yearly Summaries</a></li>
+-->
+          </ul>
+          <div class="tabs-content">
+            <div class="content active" id="panel1">
+#include "weather-current.inc"            
+            </div> <!-- end #panel1 -->
+            <div class="content" id="panel2">
+#include "weather-week.inc"
+            </div> <!-- end #panel2 -->
+            <div class="content" id="panel3">
+#include "weather-month.inc"
+            </div> <!-- end #panel3 -->
+            <div class="content" id="panel4">
+#include "weather-year.inc"
+            </div> <!-- end #panel4 -->
+            <div class="content" id="panel5">
+#include "weather-summaries-monthly.inc"
+            </div> <!-- end #panel5 -->
+            <div class="content" id="panel6">
+#include "weather-summaries-yearly.inc"
+            </div> <!-- end #panel6 -->
+          </div> <!-- end .tabs-content -->
+
+#include "footer.inc"

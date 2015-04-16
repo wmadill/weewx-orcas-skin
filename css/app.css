@@ -1,0 +1,15 @@
+.winddir-img, .outlook-img, .precip-img, .obvis-img {
+  width: 2rem;
+}
+.legend-img {
+  width: .9rem;
+}
+.pop-img {
+  width: .5rem;
+}
+.day {
+  font-size: 1.1rem;
+}
+.date {
+  font-size: .9rem;
+}
