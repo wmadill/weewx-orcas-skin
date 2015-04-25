@@ -1,6 +1,10 @@
+#import datetime
+#set $date=$datetime.datetime.fromtimestamp($int($current.current_time)).strftime('%d %b %Y')
+
         <div class="row">
           <div class="small-12 medium-4 large-4 columns">
-            <h3>Current Conditions</h3>
+            <h3>Current Conditions<br/>
+            <small>as of $current.dateTime</small></h3>
             <table>
               <tbody>
                 <tr>
@@ -211,7 +215,7 @@
           </div> <!-- end .small-12 .medium-4 .large-4 -->
 
           <div class="small-12 medium-8 large-8 columns">
-<h3>Daily Plots</h3>
+          <h3>Daily Plots</h3>
             <img src="daytempdew.png"   alt="temperatures" />
             <img src="daytempchill.png" alt="heatchill" />
             <img src="dayrain.png"      alt="rain" />
