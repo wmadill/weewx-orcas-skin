@@ -174,7 +174,9 @@
 
             <p>&nbsp;</p>
 
-            <h3>Rain Year (1-$station.rain_year_str start)</h3>
+            <h3>Rain Year (1 $station.rain_year_str start)</h3>
+            <p>Due to the rain gauge failure, this is only from
+            28 Mar 2015</p>
             <table>
               <tbody>
                 <tr>
