@@ -449,7 +449,7 @@ function toggle(control, id) {
   #if $lastday != $thisday
     #if $show_hourly
       #if $lastday is not None
-    <tr class="separator"><td class="separator" colspan="10"><hr class="separator"></td></tr>
+    <tr class="separator"><td class="separator" colspan="8"><hr class="separator"></td></tr>
       #end if
     #end if
     #set $lastday = $thisday
@@ -458,7 +458,7 @@ function toggle(control, id) {
 
     #if $show_hourly
       <tr>
-        <td class='col-date' colspan=3>
+        <td class='col-date' colspan="3">
           <span class='day'>$summary.event_ts.format('%a')</span>
           <span class='date'>$summary.event_ts.format('%d %b %Y')</span>
         </td>
