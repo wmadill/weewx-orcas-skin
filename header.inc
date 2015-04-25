@@ -37,13 +37,9 @@
           <li><a href="almanac.html">Almanac</a></li>
           <li><a href="about.html">About</a></li>
         </ul>
-        <ul class="left">
-          <li><a href="#">$current.dateTime</a></li>
-        </ul>
       </section>
     </nav>
 
     <div class="row">
       <div class="small-12 columns">
         <h1>$title</h1>
-
