@@ -1,5 +1,5 @@
 
-      </div> <!-- .large-12 -->
+      </div> <!-- .small-12 -->
     </div> <!-- .row -->
 
     ## Include the Google Analytics code if the user has supplied an ID:
