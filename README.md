@@ -14,10 +14,8 @@ created an about page. I jammed it all into Foundation CSS to make it more
 responsive.
 
 ## Plans
-- Improve small screen layouts, particularly on the forecast page
-- In the same vein decide how best to show the graphs on a small screen
+- Decide how best to show the graphs on a small screen
 - Figure out why the NOAA pages have disappeared
-- Display the times on the graphs in the same HH:MM format as elsewhere
 - Add copyrights and links to the sources for the components used in this
   version
 - Cleanup the HTML markup which is largely untouched from the original code
