@@ -1,5 +1,18 @@
 # Change Log
 
+## v1.1 - 2015-04-25
+### General
+- Actually roll the version number this time
+- Update list of files copied into public_html when first run
+### Weather pages
+- Add remark to yearly rain totals explaining it really started on 28 Mar 2015
+### Forecast page
+- Futile change for small screen layout
+### Almanac page
+- Improve tablet layout
+### About page
+- Move information around and improve descritpion
+
 ## v1.0 - 2015-04-24
 ### General
 - Improve small screen layouts for weather tabs and forecast
