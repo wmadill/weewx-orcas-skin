@@ -49,6 +49,9 @@
 #set $wloc = ''
 #set $wts = ''
 
+## Get any tide predictions
+#set $tides = $forecast.xtides(startofday=True)
+
 <script type='text/javascript'>
 function toggle(control, id) {
   elem = document.getElementById(id + '.hours');
@@ -65,11 +68,9 @@ function toggle(control, id) {
 </script>
 
 <div class="row">
-  <div class="small-12 columns">
-<table> <!-- added for test -->
+  <div class="small-12 columns hide-for-small-only">
 
-## Get any tide predictions
-#set $tides = $forecast.xtides(startofday=True)
+<table> <!-- added for test -->
 
 #if $show_legend
 <!--
@@ -163,6 +164,9 @@ function toggle(control, id) {
     #set $lastday = $thisday
     #set $summary = $forecast.weather_summary($forecast_source, $period.event_ts.raw, periods=$periods)
     #set $wloc = $summary.location
+    ## Would be nice to get the forecast location description but it is not in the forecast info
+    ## For example:
+    ## set $wdesc = $summary.desc
 
 <!--
   <div id='$smryid' class='summary'>
@@ -415,13 +419,9 @@ function toggle(control, id) {
 #end if
 
 </table>
-</div>
-  </div>
-
-  <div class='sources'>
     <p>
 #if $show_tides and len($tides) > 0
-      tides for $tides[0].location issued on $tides[0].issued_ts<br/>
+      Tides for $tides[0].location issued on $tides[0].issued_ts<br/>
 #end if
       $forecast_source forecast
 #if $wloc is not None and $wloc != ''
@@ -430,8 +430,124 @@ function toggle(control, id) {
 #if $wts is not None and $wts != ''
  issued on $wts
 #end if
-    </p>
-  </div>
+   </p>
+</div>  <!-- .hide-for-small-only -->
+
+<div class="small-12 columns show-for-small-only">
+<table>
+#set $show_hourly = 1
+#set $lastday = None
+#for $period in $periods
+  #set $thisday = $period.event_ts.format('%d')
+  #set $thisdate = $period.event_ts.format('%Y.%m.%d')
+  #set $smryid = $forecast_source + '.' + $thisdate
+  #set $hourid = $forecast_source + '.' + $thisdate + '.hours'
+  #set $alm = $forecast.almanac(ts=$period.event_ts.raw+10)
+  #set $nextday_ts = time.mktime(time.strptime($thisdate + ' 00:00', '%Y.%m.%d %H:%M')) + 24*3600
+  #set $wts = $period.issued_ts
+
+  #if $lastday != $thisday
+    #if $show_hourly
+      #if $lastday is not None
+    <tr class="separator"><td class="separator" colspan="10"><hr class="separator"></td></tr>
+      #end if
+    #end if
+    #set $lastday = $thisday
+    #set $summary = $forecast.weather_summary($forecast_source, $period.event_ts.raw, periods=$periods)
+    #set $wloc = $summary.location
+
+    #if $show_hourly
+      <tr>
+        <td class='col-date' colspan=3>
+          <span class='day'>$summary.event_ts.format('%a')</span>
+          <span class='date'>$summary.event_ts.format('%d %b %Y')</span>
+        </td>
+      </tr>
+
+    #end if
+  #end if ## lastday != thisday
+
+#if $show_hourly
+  #set $hour = $period.event_ts.format('%H:%M')
+      <tr>
+        <td class='disclosure'></td>
+#if $show_day or $show_date
+        <td class='col-date'>$hour<br/></td>
+#end if
+#if $show_outlook
+        <td class='col-outlook'>
+  #if $period.clouds is not None
+          $forecast.label('Weather', $period.clouds) 
+  #end if
+        </td>
+#end if
+#if $show_temp
+        <td class='col-temp'>$period.temp.nolabel('%.0f')</td>
+#end if
+#if $show_dewpoint
+        <td class='col-dewpoint'>$period.dewpoint.nolabel('%.0f')</td>
+#end if
+#if $show_humidity
+        <td class='col-humidity'>$period.humidity.nolabel('%.0f',' ')</td>
+#end if
+#if $show_wind
+        <td class='col-wind'>
+  #if $period.windDir is not None
+          $period.windDir&nbsp;
+  #end if
+          $period.windSpeed.nolabel('%.0f',' ') <span class='windgust'>$period.windGust.nolabel('%.0f',' ')</span>$period.windChar
+        </td>
+#end if
+#if $show_pop
+        <td class='col-pop'>
+  #if $period.pop.raw > 0
+          $period.pop.format('%.0f',' ')
+    #if $period.qpf.raw > 0
+          <br/>$period.qpf.nolabel('%.2f',' ')&nbsp;R
+    #end if
+    #if $period.qsf.raw > 0
+          <br/>$period.qsf.nolabel('%.2f',' ')&nbsp;S
+    #end if
+  #end if
+        </td>
+#end if
+#if $show_precip
+        <td class='col-precip'>
+  #for $k,$v in $period.precip.items()
+            $forecast.label('Weather', $k)
+    #if $v != ''
+            $forecast.label('Weather', $v+'q')
+    #else
+            &nbsp;
+    #end if
+            <br/>
+  #end for
+        </td>
+#end if
+#if $show_obvis
+        <td class='col-obvis'>
+  #if $period.obvis is not None
+    #set $obvis_img = 'icons/' + $period.obvis + '.png'
+          <img class='obvis-img' src='$obvis_img' alt='$period.obvis' title='$forecast.label('Weather', $period.obvis)' />
+  #end if
+        </td>
+#end if
+      </tr>
+#end if  ## show_hourly
+#end for ## period in periods
+
+</table>
+    <p>
+      $forecast_source forecast
+#if $wloc is not None and $wloc != ''
+ for $wloc
+#end if
+#if $wts is not None and $wts != ''
+ issued on $wts
+#end if
+   </p>
+</div>  <!-- .show-for-small-only -->
+
 
 #if $varExists('forecast.zambretti')
 <h1>Zambretti</h1>
@@ -442,14 +558,13 @@ Issued at $forecast.zambretti.issued_ts
 </span>
 </p>
 #end if
+  </div>  <!-- .row -->
 
-</div>
 
 #else
 
 <!-- forecasting is not installed -->
 
 #end if
-</div>
-</div>
+
 #include "footer.inc"
