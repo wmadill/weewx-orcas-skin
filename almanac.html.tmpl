@@ -1,10 +1,14 @@
 #set global $title = "Almanac"
 #include "header.inc"
+#import datetime
+#set $date=$datetime.datetime.fromtimestamp($int($current.current_time)).strftime('%d %b %Y')
+
 
         <div class="row">
           <div class="small-12 large-6 columns">
 
-            <h3>Today's Astronomy</h3>
+            ##set $date=$y.strftime('%d-%b-%Y')
+            <h3>Astronomy for $date</h3>
             #if $almanac.hasExtras
             ## Extended almanac information is available. Do the full set of tables.
             #set $sun_altitude = $almanac.sun.alt
@@ -36,6 +40,7 @@
                   <td >End civil twilight:</td>
                   <td >$almanac(horizon=-6).sun(use_center=1).set</td>
                 </tr>
+                #if $sun_altitude >= -6
                 <tr>
                   <td >Azimuth:</td>
                   <td >$("%.1f&deg;" % $almanac.sun.az)</td>
@@ -44,14 +49,7 @@
                   <td >Altitude:</td>
                   <td >$("%.1f&deg;" % $sun_altitude)</td>
                 </tr>
-                <tr>
-                  <td >Right ascension:</td>
-                  <td >$("%.1f&deg;" % $almanac.sun.ra)</td>
-                </tr>
-                <tr>
-                  <td >Declination:</td>
-                  <td >$("%.1f&deg;" % $almanac.sun.dec)</td>
-                </tr>
+                #end if
                 #if $almanac.next_equinox.raw < $almanac.next_solstice.raw
                 ## The equinox is before the solstice. Display them in order.
                 <tr>
@@ -90,6 +88,7 @@
                   <td >Set:</td>
                   <td >$almanac.moon.set</td>
                 </tr>
+                #if $almanac.moon.alt >= 0
                 <tr>
                   <td >Azimuth:</td>
                   <td >$("%.1f&deg;" % $almanac.moon.az)</td>
@@ -98,14 +97,7 @@
                   <td >Altitude:</td>
                   <td >$("%.1f&deg;" % $almanac.moon.alt)</td>
                 </tr>
-                <tr>
-                  <td >Right ascension:</td>
-                  <td >$("%.1f&deg;" % $almanac.moon.ra)</td>
-                </tr>
-                <tr>
-                  <td >Declination:</td>
-                  <td >$("%.1f&deg;" % $almanac.moon.dec)</td>
-                </tr>
+                #end if
                 #if $almanac.next_full_moon.raw < $almanac.next_new_moon.raw
                 <tr>
                   <td >Full moon:</td>
@@ -153,6 +145,8 @@
       #set $tides = $forecast.xtides
       #if len($tides) > 0
             <h3>Tides</h3>
+      Tides for $tides[0].location <br/>
+      issued on $tides[0].issued_ts<br/>
         #set $lastday = None
             <table>
         #for $tide in $tides
