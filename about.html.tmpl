@@ -3,46 +3,71 @@
 
         <div class="rows">
           <div class="small-12 large-6 columns">
-          <p>Station Location
-            <ul>
-              <li>Latitude: $station.latitude[0]&deg; $station.latitude[1]' $station.latitude[2]</li>
-              <li>Longitude: $station.longitude[0]&deg; $station.longitude[1]' $station.longitude[2]</li>
-              <li>Altitude: $station.altitude</li>
-            </ul>
-          </p>
-          <p>
-            The weather station is a Davis Vantage Pro located on Orcas Island in NW Washington State.
-            The software displaying this page is <a href="http://www.weewx.com">'weewx'</a>, an experimental
-            weather software system written in Python. Weewx was designed to be simple, fast, and easy to understand by
-            leveraging modern software concepts.
-          </p>
-          <p><a href="RSS/weewx_rss.xml">RSS feed</a></p>
-          <p><a href="mobile.html">Mobile formatted</a></p>
-          <p><a href="smartphone/index.html">Smartphone formatted</a></p>
+            <h3>Information</h3>
+            <p>
+              The weather station is a fan-aspirated wireless Davis
+              Vantage Pro located on Orcas Island in NW Washington
+              State.
+            </p>
+            <p>
+              The software that handles the data downloading and this
+              website generation is
+              <a href="http://www.weewx.com">'weewx'</a>, an
+              experimental weather software system written in Python.
+              Weewx was designed to be simple, fast, and easy to
+              understand by leveraging modern software concepts.
+            </p>
+            <h3>Location</h3>
+              <ul>
+                <li>Latitude: $station.latitude[0]&deg; $station.latitude[1]' $station.latitude[2]</li>
+                <li>Longitude: $station.longitude[0]&deg; $station.longitude[1]' $station.longitude[2]</li>
+                <li>Altitude: $station.altitude</li>
+              </ul>
+            <h3>History</h3>
+            <p>
+              The Davis VantagePro was installed in 2001, upgraded with an ISS 
+              retrofit a few years later, and added a solar radiation
+              sensor in about 2004. A Davis datalogger was attached in about
+              2003 but the data was lost during a computer hardware upgrade.
+            </p>
+            <p>
+              The rain sensor failed in the late 2000s and the entire station
+              was out of service for repairs for several weeks in March 2015.
+              It is now fully in service. Data from after November 2014 was
+              successfully retrieved from the datalogger when weewx was
+              inially configured.
+            </p>
+            <p>
+              The weewx software now runs on a Raspberry Pi Model B+ running
+              Raspbian "wheezy" Debian 7.8.
+            </p>
           </div>
+
           <div class="small-12 large-6 columns">
-        <h3>Uptime and server info</h3>
-          <p>Uptime:
-            <ul>
-              <li>weewx: $station.uptime</li>
-              <li>server: $station.os_uptime</li>
-             </ul>
-           </p>
-           <p>Current memory usage:
-             <ul>
-               <li>Total: $latest(data_binding="mem_binding").mem_size.format("%4.3f") MB</li>
-               <li>RSS: $latest(data_binding="mem_binding").mem_rss.format("%4.3f") MB</li>
-               <li>Shared: $latest(data_binding="mem_binding").mem_share.format("%4.3f") MB</li>
-             </ul>
-           </p>
+          <h3>Server information</h3>
+            <p>Uptime:
+              <ul>
+                <li>weewx: $station.uptime</li>
+                <li>server: $station.os_uptime</li>
+              </ul>
+            </p>
+            <p>Current memory usage:
+              <ul>
+                <li>Total: $latest(data_binding="mem_binding").mem_size.format("%4.1f") MB</li>
+                <li>RSS: $latest(data_binding="mem_binding").mem_rss.format("%4.1f") MB</li>
+                <li>Shared: $latest(data_binding="mem_binding").mem_share.format("%4.1f") MB</li>
+              </ul>
+            </p>
 
           <h3>Credits and versions</h3>
-            <p>
-              weewx: v$station.version
-              skin version: $Extras.version<br/>
-              forecast version: $forecast.version<br/>
-              memory version: $mem.version<br/>
-            </p>
+            <ul>
+              <li>weewx version: <a href="http://www.weewx.com/">$station.version</a></li>
+              <li>skin version: <a href="https://github.com/wmadill/weewx-orcas-skin">$Extras.version</a></li>
+              <li>forecast version: <a href="http://lancet.mit.edu/mwall/projects/weather/">$forecast.version</a></li>
+              <li>memory version: <a href="https://github.com/vinceskahan/vds-weewx-v3-mem-extension">$mem.version</a></li>
+            </ul>
+          <h3>Miscellany</h3>
+            <p><a href="RSS/weewx_rss.xml">RSS feed</a></p>
           </div>
         </div>
 
