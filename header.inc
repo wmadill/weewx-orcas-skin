@@ -12,8 +12,7 @@
     <!-- <link rel="icon" type="image/png" href="favicon.ico" /> -->
     <script src="js/vendor/modernizr.js"></script>
     <script type="text/javascript">
-      function openNoaaFile(date)
-      {
+      function openNoaaFile(date) {
         var url = "NOAA/NOAA-";
         url = url + date;
         url = url + ".txt";
