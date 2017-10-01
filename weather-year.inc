@@ -199,20 +199,20 @@
 
           <div class="small-12 large-8 columns">
             <h3>Yearly Statistics and Plots</h3>
-            <img src="yeartempdew.png" alt="temperatures" />
-            <img src="yeartempchill.png" alt="heatchill" />
-            <img src="yearhilow.png" alt="Daily highs and lows for the year" title="Daily highs and lows for the year"/>
-            <img src="yearrain.png" alt="rain" />
-            <img src="yearwind.png" alt="wind" />
-            <img src="yearbarometer.png" alt="barometer"/>
-            <img src="yearwinddir.png" alt="Hi Wind" />
-            <img src="yearinside.png" alt="Inside" />
-            <img src="yearwindvec.png" alt="Wind Vector" />
+            <img src="images/charts/yeartempdew.png" alt="temperatures" />
+            <img src="images/charts/yeartempchill.png" alt="heatchill" />
+            <img src="images/charts/yearhilow.png" alt="Daily highs and lows for the year" title="Daily highs and lows for the year"/>
+            <img src="images/charts/yearrain.png" alt="rain" />
+            <img src="images/charts/yearwind.png" alt="wind" />
+            <img src="images/charts/yearbarometer.png" alt="barometer"/>
+            <img src="images/charts/yearwinddir.png" alt="Hi Wind" />
+            <img src="images/charts/yearinside.png" alt="Inside" />
+            <img src="images/charts/yearwindvec.png" alt="Wind Vector" />
             #if $year.radiation.has_data
-            <img src="yearradiation.png" alt="Radiation" />
+            <img src="images/charts/yearradiation.png" alt="Radiation" />
             #end if
             #if $year.rxCheckPercent.has_data
-            <img src="yearrx.png" alt="year rx percent"/>
+            <img src="images/charts/yearrx.png" alt="year rx percent"/>
             #end if
           </div> <!-- End ".small-12 large-6" -->
         </div> <!-- End ".row" -->

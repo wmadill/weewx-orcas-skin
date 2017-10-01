@@ -151,19 +151,19 @@
 
           <div class="small-12 large-8 columns">
             <h3>Weekly Statistics and Plots</h3>
-            <img src="weektempdew.png" alt="temperatures" />
-            <img src="weektempchill.png" alt="heatchill" />
-            <img src="weekrain.png" alt="rain" />
-            <img src="weekwind.png" alt="wind" />
-            <img src="weekbarometer.png" alt="barometer"/>
-            <img src="weekwinddir.png" alt="Hi Wind" />
-            <img src="weekinside.png" alt="Inside" />
-            <img src="weekwindvec.png" alt="Wind Vector" />
+            <img src="images/charts/weektempdew.png" alt="temperatures" />
+            <img src="images/charts/weektempchill.png" alt="heatchill" />
+            <img src="images/charts/weekrain.png" alt="rain" />
+            <img src="images/charts/weekwind.png" alt="wind" />
+            <img src="images/charts/weekbarometer.png" alt="barometer"/>
+            <img src="images/charts/weekwinddir.png" alt="Hi Wind" />
+            <img src="images/charts/weekinside.png" alt="Inside" />
+            <img src="images/charts/weekwindvec.png" alt="Wind Vector" />
             #if $week.radiation.has_data
-            <img src="weekradiation.png" alt="Radiation" />
+            <img src="images/charts/weekradiation.png" alt="Radiation" />
             #end if
             #if $week.rxCheckPercent.has_data
-            <img src="weekrx.png" alt="week rx percent"/>
+            <img src="images/charts/weekrx.png" alt="week rx percent"/>
             #end if
           </div> <!-- End ".small-12 large-6" -->
         </div> <!-- End ".row" -->

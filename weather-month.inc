@@ -173,19 +173,19 @@
 
           <div class="small-12 large-8 columns">
             <h3>Monthly Statistics and Plots</h3>
-            <img src="monthtempdew.png" alt="temperatures" />
-            <img src="monthtempchill.png" alt="heatchill" />
-            <img src="monthrain.png" alt="rain" />
-            <img src="monthwind.png" alt="wind" />
-            <img src="monthbarometer.png" alt="barometer"/>
-            <img src="monthwinddir.png" alt="Hi Wind" />
-            <img src="monthinside.png" alt="Inside" />
-            <img src="monthwindvec.png" alt="Wind Vector" />
+            <img src="images/charts/monthtempdew.png" alt="temperatures" />
+            <img src="images/charts/monthtempchill.png" alt="heatchill" />
+            <img src="images/charts/monthrain.png" alt="rain" />
+            <img src="images/charts/monthwind.png" alt="wind" />
+            <img src="images/charts/monthbarometer.png" alt="barometer"/>
+            <img src="images/charts/monthwinddir.png" alt="Hi Wind" />
+            <img src="images/charts/monthinside.png" alt="Inside" />
+            <img src="images/charts/monthwindvec.png" alt="Wind Vector" />
             #if $month.radiation.has_data
-            <img src="monthradiation.png" alt="Radiation" />
+            <img src="images/charts/monthradiation.png" alt="Radiation" />
             #end if
             #if $month.rxCheckPercent.has_data
-            <img src="monthrx.png" alt="month rx percent"/>
+            <img src="images/charts/monthrx.png" alt="month rx percent"/>
             #end if
 
           </div> <!-- End ".small-12 large-6" -->

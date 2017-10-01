@@ -216,19 +216,19 @@
 
           <div class="small-12 medium-8 large-8 columns">
           <h3>Daily Plots</h3>
-            <img src="daytempdew.png"   alt="temperatures" />
-            <img src="daytempchill.png" alt="heatchill" />
-            <img src="dayrain.png"      alt="rain" />
-            <img src="daywind.png"      alt="wind" />
-            <img src="daybarometer.png" alt="barometer"/>
-            <img src="daywinddir.png"   alt="Hi Wind" />
-            <img src="dayinside.png"    alt="Inside" />
-            <img src="daywindvec.png"   alt="Wind Vector" />
+            <img src="images/charts/daytempdew.png"   alt="temperatures" />
+            <img src="images/charts/daytempchill.png" alt="heatchill" />
+            <img src="images/charts/dayrain.png"      alt="rain" />
+            <img src="images/charts/daywind.png"      alt="wind" />
+            <img src="images/charts/daybarometer.png" alt="barometer"/>
+            <img src="images/charts/daywinddir.png"   alt="Hi Wind" />
+            <img src="images/charts/dayinside.png"    alt="Inside" />
+            <img src="images/charts/daywindvec.png"   alt="Wind Vector" />
             #if $day.radiation.has_data
-            <img src="dayradiation.png" alt="Radiation" />
+            <img src="images/charts/dayradiation.png" alt="Radiation" />
             #end if
             #if $day.rxCheckPercent.has_data
-            <img src="dayrx.png"        alt="day rx percent"/>
+            <img src="images/charts/dayrx.png"        alt="day rx percent"/>
             #end if
           </div> <!-- End ".small-12 medium-8 large-6" -->
         </div> <!-- End ".row" -->
