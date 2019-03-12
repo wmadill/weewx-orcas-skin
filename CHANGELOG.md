@@ -5,6 +5,15 @@
 ### About page
 - Update OS version
 
+## v1.2 - 2017-09-30
+### General
+- General reorganization. Move forecast icons and generated images into new "images" directory.
+### Forecast page
+- Show expansions for daily forecasts.
+### About page
+- Get version for MemoryMonitor extension directly from it.
+- Minor updates
+
 ## v1.1 - 2015-04-25
 ### General
 - Actually roll the version number this time
