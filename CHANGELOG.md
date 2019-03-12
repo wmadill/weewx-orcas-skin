@@ -1,4 +1,9 @@
 # Change Log
+## v1.3 - 2019-03-11
+### Almanac page
+- Add amount of daylight and change since previous day
+### About page
+- Update OS version
 
 ## v1.1 - 2015-04-25
 ### General
