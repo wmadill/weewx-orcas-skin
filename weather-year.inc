@@ -35,8 +35,8 @@
                     Low Humidity
                   </td>
                   <td class="stats_data">
-                    $year.outHumidity.max $year.outHumidity.maxtime<br/>
-                    $year.outHumidity.min $year.outHumidity.mintime
+                    $year.outHumidity.max at $year.outHumidity.maxtime<br/>
+                    $year.outHumidity.min at $year.outHumidity.mintime
                   </td>
                 </tr>
                 <tr>
@@ -45,8 +45,8 @@
                     Low Dewpoint
                   </td>
                   <td class="stats_data">
-                    $year.dewpoint.max $year.dewpoint.maxtime<br/>
-                    $year.dewpoint.min $year.dewpoint.mintime
+                    $year.dewpoint.max at $year.dewpoint.maxtime<br/>
+                    $year.dewpoint.min at $year.dewpoint.mintime
                   </td>
                 </tr>
                 <tr>
