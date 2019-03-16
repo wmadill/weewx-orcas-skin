@@ -1,4 +1,10 @@
 # Change Log
+## v1.4 - 2019-03-15
+### Skin config
+- Remove all Units and rely on weewx.conf to handle
+### Weather pages
+- Add missing "at" to several of max and min times
+
 ## v1.3 - 2019-03-11
 ### Almanac page
 - Add amount of daylight and change since previous day
