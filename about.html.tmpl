@@ -56,20 +56,12 @@
                 <li>server: $station.os_uptime</li>
               </ul>
             </p>
-            <p>Current memory usage:
-              <ul>
-                <li>Total: $latest(data_binding="mem_binding").mem_size.format("%4.1f") MB</li>
-                <li>RSS: $latest(data_binding="mem_binding").mem_rss.format("%4.1f") MB</li>
-                <li>Shared: $latest(data_binding="mem_binding").mem_share.format("%4.1f") MB</li>
-              </ul>
-            </p>
 
           <h3>Credits and versions</h3>
             <ul>
               <li>weewx version: <a href="http://www.weewx.com/">$station.version</a></li>
               <li>orcas skin version: <a href="https://github.com/wmadill/weewx-orcas-skin">$Extras.version</a></li>
               <li>forecast version: <a href="http://lancet.mit.edu/mwall/projects/weather/">$forecast.version</a></li>
-              <li>memory version: <a href="https://github.com/vinceskahan/vds-weewx-v3-mem-extension">$mem.version</a></li>
             </ul>
           <h3>Miscellany</h3>
             <p><a href="RSS/weewx_rss.xml">RSS feed</a></p>
@@ -77,4 +69,3 @@
         </div>  <!-- .rows -->
 
 #include "footer.inc"
-<!-- $mem.ipv4 -->
