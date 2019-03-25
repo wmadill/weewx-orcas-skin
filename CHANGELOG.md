@@ -1,4 +1,11 @@
 # Change Log
+## v1.5 - 2019-03-25
+###General
+- Roll version number
+- Remove references to "mem" extension since replaced by "cmon"
+### About page
+- Remove references to "mem" extension since replaced by "cmon"
+
 ## v1.4 - 2019-03-15
 ### Skin config
 - Remove all Units and rely on weewx.conf to handle
