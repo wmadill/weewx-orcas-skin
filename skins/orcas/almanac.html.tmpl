@@ -7,13 +7,16 @@
 #set $yesterday = $now - 24*3600
 #set $today_daylight = $almanac.sun.set.raw - $almanac.sun.rise.raw
 #set $yesterday_daylight = $almanac($almanac_time=$yesterday).sun.set.raw - $almanac($almanac_time=$yesterday).sun.rise.raw
-#set $difference = $today_daylight - $yesterday_daylight
+#set $difference = abs($today_daylight - $yesterday_daylight)
 #set $seconds = $almanac.sun.set.raw - $almanac.sun.rise.raw
-#set $hours = $seconds //3600
+#set $hours = $seconds//3600
 #set $seconds %= 3600
 #set $minutes = $seconds//60
 #set $seconds %= 60
-#set $difference_minutes = $difference //60
+#if $seconds > 30 
+#set $minutes += 1
+#end if
+#set $difference_minutes = $difference//60
 #set $difference_seconds = $difference
 #set $difference_seconds %= 60
 
@@ -65,12 +68,12 @@
                 #end if
 		<tr>
 		  <td colspan=2>
-                  $("Daylight: %dh %dm %ds" % ($hours, $minutes, $seconds)) 
-                 #if $difference > 0
+                  $("Daylight: %dh %dm" % ($hours, $minutes)) 
+		#if ($today_daylight - $yesterday_daylight) > 0
                  $("(+%dm %ds)" % ($difference_minutes, $difference_seconds))
-                 #else
+                #else
                  $("(-%dm %ds)" % ($difference_minutes, $difference_seconds))
-                 #end if 
+                #end if 
 		  </td>
 		</tr>
 
