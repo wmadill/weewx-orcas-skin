@@ -1,6 +1,13 @@
 weewx-orcas-skin change history
 -------------------------------
 
+1.5.1 2019-08-19
+
+Almanac page
+  - Fix daylight difference bug when daylight is decreasing
+  - Only display hours and minutes of daylight. Removed seconds and round
+  minutes as needed
+
 1.5 2019-03-25
 
 General
