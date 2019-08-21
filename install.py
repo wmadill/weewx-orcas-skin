@@ -6,7 +6,7 @@ def loader():
     return OrcasInstaller()
 
 class OrcasInstaller(ExtensionInstaller):
-    def __init(self):
+    def __init__(self):
         super(OrcasInstaller, self).__init__(
             version="1.5.1",
             name='Orcas',
@@ -44,8 +44,6 @@ class OrcasInstaller(ExtensionInstaller):
                      'skins/Orcas/css/foundation_stock.css',
                      'skins/Orcas/css/foundation_stock.min.css',
                      'skins/Orcas/css/normalize.css']),
-                   ('skins/Orcas/images',
-                    ['skins/Orcas/images/icons']),
                    ('skins/Orcas/images/icons',
                     ['skins/Orcas/images/icons/AF.png',
                      'skins/Orcas/images/icons/B1n.png',
@@ -128,7 +126,7 @@ class OrcasInstaller(ExtensionInstaller):
                      'skins/Orcas/js/foundation/foundation.tab.js',
                      'skins/Orcas/js/foundation/foundation.tooltip.js',
                      'skins/Orcas/js/foundation/foundation.topbar.js',
-                     'skins/Orcas/js/foundation/jquery.cookie.js'[),
+                     'skins/Orcas/js/foundation/jquery.cookie.js']),
                    ('skins/Orcas/js/vendor',
                     ['skins/Orcas/js/vendor/fastclick.js',
                      'skins/Orcas/js/vendor/jquery.cookie.js',
