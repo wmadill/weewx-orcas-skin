@@ -1,6 +1,12 @@
 weewx-orcas-skin change history
 -------------------------------
 
+1.6 2019-08-21
+
+General
+  - Roll version number
+  - Convert to weewx extension
+
 1.5.1 2019-08-19
 
 Almanac page
