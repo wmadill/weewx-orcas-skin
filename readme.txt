@@ -1,7 +1,8 @@
 weewx-orcas-skin
 
 Overview
-This repository contains the custom skin for the weewx installation on Orcas.
+This repository contains the custom skin for the weewx installation on Orcas
+packaged as a weewx extension.
 
 Some details
 The skin uses the standard skin from tkeffer's excellent weewx weather station

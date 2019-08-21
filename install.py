@@ -8,7 +8,7 @@ def loader():
 class OrcasInstaller(ExtensionInstaller):
     def __init(self):
         super(OrcasInstaller, self).__init__(
-            version="1.5",
+            version="1.6",
             name='orcas',
             description='Skin for Orcas weather station',
             author='Bill Madill',
