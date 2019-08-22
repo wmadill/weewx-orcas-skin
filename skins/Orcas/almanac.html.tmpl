@@ -15,6 +15,10 @@
 #set $seconds %= 60
 #if $seconds > 30 
 #set $minutes += 1
+#if $minutes == 60
+#set $hours += 1
+#set $minutes = 0
+#end if
 #end if
 #set $difference_minutes = $difference//60
 #set $difference_seconds = $difference
