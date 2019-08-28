@@ -71,8 +71,8 @@
                 </tr>
                 #end if
 		<tr>
-		  <td colspan=2>
-                  $("Daylight: %dh %dm" % ($hours, $minutes)) 
+		  <td >Daylight:</td>
+                  <td >$("%dh %dm" % ($hours, $minutes)) 
 		#if ($today_daylight - $yesterday_daylight) > 0
                  $("(+%dm %ds)" % ($difference_minutes, $difference_seconds))
                 #else
