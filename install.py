@@ -8,11 +8,11 @@ def loader():
 class OrcasInstaller(ExtensionInstaller):
     def __init__(self):
         super(OrcasInstaller, self).__init__(
-            version="1.6.1",
+            version="1.7",
             name='Orcas',
             description='Skin for Orcas weather station',
             author='Bill Madill',
-            author_email='bill@jamimi.com',
+            author_email='wm@wmadill.com',
             config={
                 'StdReport': {
                     'Orcas': {
@@ -30,8 +30,7 @@ class OrcasInstaller(ExtensionInstaller):
                      'skins/Orcas/skin.conf',
                      'skins/Orcas/weather-current.inc',
                      'skins/Orcas/weather-month.inc',
-                     'skins/Orcas/weather-summaries-monthly.inc',
-                     'skins/Orcas/weather-summaries-yearly.inc',
+                     'skins/Orcas/weather-summaries.inc',
                      'skins/Orcas/weather-week.inc',
                      'skins/Orcas/weather-year.inc']),
                    ('skins/Orcas/NOAA',
