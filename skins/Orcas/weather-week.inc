@@ -1,5 +1,5 @@
         <div class="row">
-          <div class="small-12 large-4 columns">
+          <div class="small-12 large-5 columns">
             <h3>This Week</h3>
             <table>
               <tbody>
@@ -149,7 +149,7 @@
             </table>
           </div> <!-- end .small-12 .large-4 -->
 
-          <div class="small-12 large-8 columns">
+          <div class="small-12 large-7 columns">
             <h3>Weekly Statistics and Plots</h3>
             <img src="images/charts/weektempdew.png" alt="temperatures" />
             <img src="images/charts/weektempchill.png" alt="heatchill" />
