@@ -1,4 +1,5 @@
 #set global $title = "Forecast"
+
 #include "header.inc"
 
 ## forecast display for weewx - Copyright 2012-2013 Matthew Wall
@@ -129,12 +130,12 @@ function toggle(control, id) {
           <span class='windgust'>$summary.windGust.nolabel('%.0f',' ')</span>$summary.windChar
         </td>
         <td class='col-pop'>
-  #if $summary.pop.raw > 0
+  #if $summary.pop.raw is not None and $summary.pop.raw > 0
           $summary.pop.format('%.0f','')<br/>
-    #if $summary.qpf.raw > 0
+    #if $summary.qpf.raw is not None and $summary.qpf.raw > 0
           $summary.qpf.nolabel('%.2f','') <img class='pop-img' src='images/icons/raindrop.png' /><br/>
     #end if
-    #if $summary.qsf.raw > 0
+    #if $summary.qsf.raw is not None and $summary.qsf.raw > 0
           $summary.qsf.nolabel('%.2f','') <img class='pop-img' src='images/icons/snowflake.png' />
     #end if
   #end if
@@ -186,12 +187,12 @@ function toggle(control, id) {
           $period.windSpeed.nolabel('%.0f',' ') <span class='windgust'>$period.windGust.nolabel('%.0f',' ')</span>$period.windChar<br/>
         </td>
         <td class='col-pop'>
-  #if $period.pop.raw > 0
+  #if $period.pop.raw is not None and $period.pop.raw > 0
           $period.pop.format('%.0f',' ')<br/>
-    #if $period.qpf.raw > 0
+    #if $period.qpf.raw is not None and $period.qpf.raw > 0
           $period.qpf.nolabel('%.2f',' ') <img class='pop-img' src='images/icons/raindrop.png' /><br/>
     #end if
-    #if $period.qsf.raw > 0
+    #if $period.qsf.raw is not None and $period.qsf.raw > 0
           $period.qsf.nolabel('%.2f',' ') <img class='pop-img' src='images/icons/snowflake.png' />
     #end if
   #end if
@@ -286,12 +287,12 @@ function toggle(control, id) {
           $period.windSpeed.nolabel('%.0f',' ') <span class='windgust'>$period.windGust.nolabel('%.0f',' ')</span>$period.windChar
         </td>
         <td class='col-pop'>
-  #if $period.pop.raw > 0
+  #if $period.pop.raw is not None and $period.pop.raw > 0
           $period.pop.format('%.0f',' ')
-    #if $period.qpf.raw > 0
+    #if $period.qpf.raw is not None and $period.qpf.raw > 0
           <br/>$period.qpf.nolabel('%.2f',' ')&nbsp;R
     #end if
-    #if $period.qsf.raw > 0
+    #if $period.qsf.raw is not None and $period.qsf.raw > 0
           <br/>$period.qsf.nolabel('%.2f',' ')&nbsp;S
     #end if
   #end if
@@ -346,6 +347,7 @@ Issued at $forecast.zambretti.issued_ts
 #else
 
 <!-- forecasting is not installed -->
+<b>Forecast extension is not installed.</b>
 
 #end if
 
