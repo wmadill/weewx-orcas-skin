@@ -35,6 +35,7 @@
           <li><a href="forecast.html">Forecast</a></li>
           <li><a href="almanac.html">Almanac</a></li>
           <li><a href="about.html">About</a></li>
+          <li><a href="weather-summaries.html">Summaries</a></li>
         </ul>
       </section>
     </nav>
