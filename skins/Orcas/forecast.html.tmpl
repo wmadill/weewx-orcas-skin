@@ -1,5 +1,5 @@
 #set global $title = "Forecast"
-#errorCatcher Echo
+
 #include "header.inc"
 
 ## forecast display for weewx - Copyright 2012-2013 Matthew Wall
@@ -9,6 +9,8 @@
 ## Include this file to display forecast data.  This file uses icons from the
 ## forecast icon set.
 ##
+
+#if $varExists('forecast')
 
 ## Which forecast should be displayed?  Options include WU, NWS
 #set $forecast_source = 'NWS'
@@ -340,5 +342,13 @@ Issued at $forecast.zambretti.issued_ts
 </p>
 #end if
   </div>  <!-- .row -->
+
+
+#else
+
+<!-- forecasting is not installed -->
+<b>Forecast extension is not installed.</b>
+
+#end if
 
 #include "footer.inc"
