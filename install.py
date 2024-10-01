@@ -27,6 +27,7 @@ class OrcasInstaller(ExtensionInstaller):
                      'skins/Orcas/header.inc',
                      'skins/Orcas/index.html.tmpl',
                      'skins/Orcas/robots.txt',
+                     'skins/Orcas/server.html.tmpl',
                      'skins/Orcas/skin.conf',
                      'skins/Orcas/weather-current.inc',
                      'skins/Orcas/weather-month.inc',
