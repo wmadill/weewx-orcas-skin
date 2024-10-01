@@ -173,6 +173,7 @@
             #end if
           </div> <!-- end class "celestial_group" -->
           <div class="small-12 medium-6 large-6 columns">
+#if $varExists('forecast')
       #set $tides = $forecast.xtides
       #if len($tides) > 0
             <h3>Tides</h3>
@@ -196,6 +197,11 @@
         #end for
       #end if
             </table>
+#else
+
+          <!-- forecasting is not installed -->
+          <b>Tides not available. Install Forecast extension.</b>
+#end if
           </div>
         </div>
 
