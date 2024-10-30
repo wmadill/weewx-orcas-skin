@@ -160,7 +160,6 @@ function toggle(control, id) {
     <table>
   #end if ## lastday != thisday
 
-
   #set $hour = $period.event_ts.format('%H:%M')
       <tr>
         <td class='disclosure'></td>
@@ -234,7 +233,7 @@ function toggle(control, id) {
  issued on $wts
 #end if
     <br/>
-    <a href="https://www.wrh.noaa.gov/total_forecast/getprod.php?new&wfo=sew&sid=SEW&pil=AFD" target="_blank">Forecast Discussion</a>
+    <a href="https://forecast.weather.gov/product.php?site=NWS&issuedby=SEW&product=AFD&format=txt" target="_blank">Forecast Discussion</a>
    </p>
 </div>  <!-- .hide-for-small-only -->
 
@@ -327,12 +326,11 @@ function toggle(control, id) {
  issued on $wts
 #end if
   <br/>
-  <a href="https://www.wrh.noaa.gov/total_forecast/getprod.php?new&wfo=sew&sid=SEW&pil=AFD" target="_blank">Forecast Discussion</a>
+    <a href="https://forecast.weather.gov/product.php?site=NWS&issuedby=SEW&product=AFD&format=txt" target="_blank">Forecast Discussion</a>
   </p>
 </div>  <!-- .show-for-small-only -->
 
-
-#if $varExists('forecast.zambretti')
+#if $forecast.zambretti.code is not None and $forecast.zambretti.code != ''
 <h1>Zambretti</h1>
 <p>
 The forecast is $forecast.label('Zambretti', $forecast.zambretti.code)<br/>
@@ -342,7 +340,6 @@ Issued at $forecast.zambretti.issued_ts
 </p>
 #end if
   </div>  <!-- .row -->
-
 
 #else
 
