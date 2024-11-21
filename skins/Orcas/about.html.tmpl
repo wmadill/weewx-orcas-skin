@@ -49,9 +49,9 @@
             <h3>Credits</h3>
               <ul>
                 <li>WeeWX version: <a href="http://www.weewx.com/">$station.version</a></li>
-                <li>orcas skin version: <a href="https://github.com/wmadill/weewx-orcas-skin">$Extras.version</a></li>
+                <li>Orcas skin version: <a href="https://github.com/wmadill/weewx-orcas-skin">$Extras.version</a></li>
               #if $varExists('forecast')
-                <li>forecast version: <a href="https://github.com/chaunceygardiner/weewx-forecast">$forecast.version</a></li>
+                <li>Forecast version: <a href="https://github.com/chaunceygardiner/weewx-forecast">$forecast.version</a></li>
               #else
                 <!-- forecasting is not installed -->
               #end if
@@ -59,6 +59,11 @@
                 <li>S3upload version: <a href="https://github.com/wmadill/weewx-S3upload">$S3upload.version</a></li>
               #else
                 <!-- S3upload is not installed -->
+              #end if
+              #if $varExists('sysinfo')
+                <li>Sysinfo version: <a href="https://github.com/wmadill/weewx-sysinfo">$sysinfo.version</a></li>
+              #else
+                <!-- sysinfo is not installed -->
               #end if
               </ul>
             <h3>Miscellany</h3>

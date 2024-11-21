@@ -10,17 +10,112 @@
                 is uploaded to an Amazon S3 bucket which is configured as
   	            a static website.
               </p>
-              <p>Uptime:
+
+            <h3>Statistics</h3>
+              <h4>Uptime</h4>
                 <ul>
                   <li>weewx: $station.uptime.long_form</li>
                   <li>server: $station.os_uptime.long_form</li>
                 </ul>
-              </p>
 
-<!-- Some day...
-            <h3>Statistics</h3>
-              <p>Some server stats for file system and memory usage</p>
--->
+              <h4>Memory Use</h4>
+             <table>
+               <tr>
+                 <th>
+                   Memory Type
+                 </th>
+                 <th>
+                   Current
+                 </th>
+                 <th>
+                   Weekly min
+                 </th>
+                 <th>
+                   Weekly max
+                 </th>
+                 <th>
+                   Weekly avg
+                 </th>
+               <tr>
+                 <td>
+                   Size
+                 </td>
+                 <td>
+#if $sysinfo.prevweek.mem_size.has_data
+                   $latest($data_binding='sysinfo_binding').mem_size.format("%.2f")
+                 </td>
+                 <td>
+                   $sysinfo.prevweek.mem_size.min.format("%.2f")
+                 </td>
+                 <td>
+                   $sysinfo.prevweek.mem_size.max.format("%.2f")
+                 </td>
+                 <td>
+                   $sysinfo.prevweek.mem_size.avg.format("%.2f")
+                 </td>
+#else
+                 <td>
+                   Memory (weekly size): N/A
+                 </td>
+#end if
+               </tr>
+               <tr>
+                 <td>
+                   RSS
+                 </td>
+                 <td>
+#if $sysinfo.prevweek.mem_rss.has_data
+                   $latest($data_binding='sysinfo_binding').mem_rss.format("%.2f")
+                 </td>
+                 <td>
+                   $sysinfo.prevweek.mem_rss.min.format("%.2f")
+                 </td>
+                 <td>
+                   $sysinfo.prevweek.mem_rss.max.format("%.2f")
+                 </td>
+                 <td>
+                   $sysinfo.prevweek.mem_rss.avg.format("%.2f")
+                 </td>
+#else
+                 <td>
+                   Memory (weekly rss): N/A
+                 </td>
+#end if
+               </tr>
+               <tr>
+                 <td>
+                   Share
+                 </td>
+                 <td>
+#if $sysinfo.prevweek.mem_share.has_data
+                   $latest($data_binding='sysinfo_binding').mem_share.format("%.2f")
+                 </td>
+                 <td>
+                   $sysinfo.prevweek.mem_share.min.format("%.2f")
+                 </td>
+                 <td>
+                   $sysinfo.prevweek.mem_share.max.format("%.2f")
+                 </td>
+                 <td>
+                   $sysinfo.prevweek.mem_share.avg.format("%.2f")
+                 </td>
+#else
+                 <td>
+                   Memory (weekly share): N/A
+                 </td>
+#end if
+               </tr>
+             </table>
+          </div>
+          <div class="small-12 large-6 columns">
+            <img src="images/charts/daysysinfo.png" alt="daily memory" />
+            <p>Daily memory use</p>
+            <img src="images/charts/weeksysinfo.png" alt="weekly memory" />
+            <p>Weekly memory use</p>
+            <img src="images/charts/monthsysinfo.png" alt="monthly memory" />
+            <p>Monthly memory use</p>
+            <img src="images/charts/yearsysinfo.png" alt="yearly memory" />
+            <p>Yearly memory use</p>
           </div>  <!-- .small-12 .large-6 -->
         </div>  <!-- .rows -->
 
