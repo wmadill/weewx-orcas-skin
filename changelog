@@ -1,6 +1,19 @@
 weewx-orcas-skin change history
 -------------------------------
 
+1.8 2024-11-21
+
+  - Update NOAA "Forecast Discussion" link
+	- Integrate sysinfo on server.html
+
+1.7 2024-10-12
+
+  - Move server info to new page
+	- Move weather summaries to menu
+	- Support Python 3
+	- Check if forecast extension exists for forecast and tide display
+	- Fix uptime display
+
 1.6.1 2019-08-22
 
 Almanac page
