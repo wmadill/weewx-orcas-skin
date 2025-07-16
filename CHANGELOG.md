@@ -1,5 +1,8 @@
 # Change Log
 
+## v1.9 - 16 April 2025
+- Convert changelog from text file to CHANGELOG.md
+- Convert readme.txt from text file to README.md
 
 ## v1.8 - 21 November 2024
 - Update NOAA "Forecast Discussion" link
