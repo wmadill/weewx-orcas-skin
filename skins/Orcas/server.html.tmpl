@@ -1,3 +1,4 @@
+#errorCatcher Echo
 #set global $title = "Server Information"
 #include "header.inc"
 
@@ -10,6 +11,15 @@
                 is uploaded to an Amazon S3 bucket which is configured as
   	            a static website.
               </p>
+              <ul>
+                <li>OS name: $sysinfo.osinfo.os_name</li>
+                <li>OS version: $sysinfo.osinfo.os_version</li>
+                <li>OS code name: $sysinfo.osinfo.os_codename</li>
+              </ul>
+              <ul>
+                <li>CPU type: $sysinfo.cpuinfo.cpu_type</li>
+                <li>CPU model: $sysinfo.cpuinfo.cpu_model</li>
+              </ul>
 
             <h3>Statistics</h3>
               <h4>Uptime</h4>
